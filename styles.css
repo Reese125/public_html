@@ -64,7 +64,7 @@ p {
 	color: hsl(var(--rotation),100%,50%);
 }
 
-video{
+img{
 	transform: translateX(calc(sin(var(--rotation)) * 600px)) rotate3d(1, 0, 1, calc(var(--rotation) * 2));
 	filter: sepia(100%) saturate(1000%) hue-rotate(var(--rotation));
 }
