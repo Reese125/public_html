@@ -19,14 +19,14 @@ meter, progress, output {
 div#tswsidecol {
 	float: right ;
 	width: 20% ;
-	color: #000 ;
-	background-color: #fff ;
+	color: #000 ; 
+	/* background-color: #fff ; */
 }
 div#tswcontent {
 	float: right ;
 	width: 80% ;
 	color: #000 ;
-	background-color: #fff ;
+	/* background-color: #fff ; */
 }
 @media only screen and (max-width: 629px) {
 	div#tswsidecol {
@@ -44,7 +44,7 @@ div#tswcontproper {
 }
 div#tswcontainer {
 	color: inherit ;
-	background-color: #fff ;
+	/* background-color: #fff ; */
 }
 div#tswsideproper, div#tswothersideproper {
 	padding-left: 5px ;
@@ -52,9 +52,24 @@ div#tswsideproper, div#tswothersideproper {
 }
 div#tswheader {
 	color: #000 ;
-	background-color: #fff ;
+	/* background-color: #fff ;/ */
 }
 div#tswfooter {
 	color: #000 ;
-	background-color: #fff ;
+	/* background-color: #fff ; */
+}
+
+h1,
+p {
+	color: hsl(var(--rotation),100%,50%);
+}
+
+video{
+	transform: translateX(calc(sin(var(--rotation)) * 600px)) rotate3d(1, 0, 1, calc(var(--rotation) * 2));
+	filter: sepia(100%) saturate(1000%) hue-rotate(var(--rotation));
+}
+
+audio{
+	transform: translateX(calc(sin(var(--rotation)) * 600px)) rotate3d(1, 0, 1, calc(var(--rotation) * 2));
+	filter: sepia(100%) saturate(1000%) hue-rotate(var(--rotation));
 }
