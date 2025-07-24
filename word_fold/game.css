@@ -9,6 +9,9 @@ h1 {
     margin: 0;
 }
 
+
+
+
 #cell-holder {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -33,11 +36,14 @@ h1 {
 }
 
 #next-btn.enabled {
-    background-color: #4CAF50; /* A nice green color */
+    background-color: #000000; /* A nice green color */
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#reset-btn {
+    background-color: #dc3545; /* A nice red color */
     color: white;
     cursor: pointer;
 }
 
-#reset_level_btn.color {
-    background-color: rgb(88, 17, 17);
-}
