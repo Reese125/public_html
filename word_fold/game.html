@@ -5,12 +5,12 @@
   <title>Word Fold</title>
   <link rel="stylesheet" href="game.css">
   <script src="game.js" defer></script>
+  
 </head>
-
 <body>
-  <div class="header">
-    <h1>Word Fold</h1>
-  </div>
+<aside>
+ 
+
   <div id="cell-holder">
     <div class="cell" onclick="on_click(0,0)"></div>
     <div class="cell" onclick="on_click(1,0)"></div>
@@ -39,10 +39,17 @@
     <div class="cell" onclick="on_click(4,4)"></div>
   </div>
   <div class="header" id="words"></div>
- 
- 
+
+ </aside>
+  <section>
+<div
+     class="header">
+      <h1>Word Fold</h1>
+   </div>
+
  <button type="button" id="next-btn" onclick="btn_click()">Next</button>
  <button type="button" id="reset-btn" onclick="reset_level_click()">Reset Level</button>
-</body>
+</section>
 
+</body>
 </html>

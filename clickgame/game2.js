@@ -1,32 +1,32 @@
-let widget_container = document.getElementById("widget-container")
-let score_element = document.getElementById("score")
-let stores = document.getElementsByClassName("store")
+const widget_container = document.getElementById("widget-container")
+const score_element = document.getElementById("score")
+const stores = document.getElementsByClassName("store")
 
 let score = 5;
 let super_gompei_count = 0;
 
 function changescore(amount) {
     score += amount
-    score_element.innerHTML = "Score: " + score
+    score_element.innerHTML = "Score: " + score;
 
     for (let store of stores) {
-        let cost = parseInt(store.getAttribute("cost"))
+        let cost = parseInt(store.getAttribute("cost"));
 
         if (score < cost) {
-            store.setAttribute("broke", "")
+            store.setAttribute("broke", "");
         } else {
-            store.removeAttribute("broke")
+            store.removeAttribute("broke");
         }
     }
 }
 function buy(store) {
-    let cost = parseInt(store.getAttribute("cost"))
+    let cost = parseInt(store.getAttribute("cost"));
 
     if (score < cost) {
         return;
     }
 
-    changescore(-cost)
+    changescore(-cost);
 
     let super_gompei = document.querySelector("#widget-container #super-gompei")?.parentElement;
    if(store.getAttribute("name") == "Super-Gompei" && super_gompei != null) {
@@ -36,7 +36,7 @@ function buy(store) {
 
    }
 
-    let new_widget = store.firstElementChild.cloneNode(true)
+    let new_widget = store.firstElementChild.cloneNode(true);
 
     new_widget.onclick = () => {
         harvest(new_widget)
@@ -52,10 +52,10 @@ function buy(store) {
 
 function setup_end_harvest(widget) {
     setTimeout(() => {
-        widget.removeAttribute("harvesting")
+        widget.removeAttribute("harvesting");;
 
         if (widget.getAttribute("auto") == 'true') {
-            harvest(widget)
+            harvest(widget);
         }
 
     }, parseFloat(widget.getAttribute("cooldown")) * 1000);
@@ -66,12 +66,12 @@ function harvest(widget) {
         return;
     }
 
-    widget.setAttribute("harvesting", "")
+    widget.setAttribute("harvesting", "");
 
-    changescore(parseInt(widget.getAttribute("reap")))
+    changescore(parseInt(widget.getAttribute("reap")));
     givePoints(widget)
 
-    setup_end_harvest(widget)
+    setup_end_harvest(widget);
 
 }
 
