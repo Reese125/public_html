@@ -1,0 +1,172 @@
+/* 
+ * STYLE.CSS - Application Styling
+ * Provides visual styling for the Voice Story Builder application
+ * Creates a clean, user-friendly interface for interactive storytelling
+ */
+
+/* =============================================================================
+ * GENERAL PAGE LAYOUT
+ * ============================================================================= */
+
+/* Main body styling - centers content and sets overall appearance */
+body {
+  font-family: Arial, sans-serif;  /* Clean, readable font */
+  background: #f4f4f4;            /* Light gray background */
+  padding: 30px;                  /* Space around content */
+  max-width: 700px;               /* Limit width for readability */
+  margin: auto;                   /* Center content horizontally */
+  color: #333;                    /* Dark gray text for good contrast */
+}
+
+/* =============================================================================
+ * HEADING STYLES
+ * ============================================================================= */
+
+/* Main application title */
+h1 {
+  text-align: center;             /* Center the heading */
+  margin-bottom: 20px;            /* Space below heading */
+  color: #222;                    /* Darker color for emphasis */
+}
+
+/* =============================================================================
+ * LANGUAGE SELECTION CONTROLS
+ * ============================================================================= */
+
+/* Container for language selection dropdown */
+.controls {
+  text-align: center;             /* Center the language selector */
+  margin-bottom: 20px;            /* Space below controls */
+}
+
+/* Label styling for language selector */
+label {
+  font-weight: bold;              /* Make label text bold */
+  margin-right: 8px;              /* Space between label and dropdown */
+}
+
+/* Dropdown menu styling */
+select {
+  padding: 5px;                   /* Inner spacing for comfort */
+  font-size: 16px;                /* Readable text size */
+  border-radius: 4px;             /* Slightly rounded corners */
+  border: 1px solid #ccc;         /* Light border */
+}
+
+/* =============================================================================
+ * STORY DISPLAY AREA
+ * ============================================================================= */
+
+/* Main story text display container */
+#story {
+  white-space: pre-wrap;          /* Preserve line breaks and spacing */
+  background: #fff;               /* White background for contrast */
+  padding: 15px;                  /* Inner spacing for readability */
+  border: 1px solid #ccc;         /* Light border definition */
+  border-radius: 6px;             /* Rounded corners for modern look */
+  min-height: 200px;              /* Minimum height to prevent collapse */
+  margin-bottom: 20px;            /* Space below story area */
+  font-size: 18px;                /* Larger text for story readability */
+  line-height: 1.5;               /* Comfortable line spacing */
+}
+
+/* =============================================================================
+ * ACTION BUTTONS AND CONTROLS
+ * ============================================================================= */
+
+/* Container for all action buttons and loading indicator */
+.actions {
+  text-align: center;             /* Center all action elements */
+}
+
+/* Main speak button - primary action */
+#speakBtn {
+  font-size: 18px;                /* Large text for visibility */
+  padding: 10px 20px;             /* Comfortable click area */
+  cursor: pointer;                /* Hand cursor on hover */
+  background-color: #4CAF50;      /* Green color suggests "go/start" */
+  color: white;                   /* White text for contrast */
+  border: none;                   /* Remove default button border */
+  border-radius: 6px;             /* Rounded corners to match design */
+  transition: background-color 0.3s; /* Smooth color change on hover */
+}
+
+/* Hover effect for speak button */
+#speakBtn:hover {
+  background-color: #45a049;      /* Darker green on hover for feedback */
+}
+
+/* =============================================================================
+ * LOADING INDICATOR
+ * ============================================================================= */
+
+/* Loading message shown while AI is processing */
+#loading {
+  display: none;                  /* Hidden by default */
+  font-style: italic;             /* Italics to indicate temporary state */
+  color: #888;                    /* Gray color for less emphasis */
+  margin-top: 10px;               /* Space above loading message */
+  font-size: 14px;                /* Smaller text size */
+}
+
+/* =============================================================================
+ * SECONDARY CONTROL BUTTONS
+ * ============================================================================= */
+
+/* Shared styling for pause and stop buttons */
+#pauseSpeakBtn, #stopSpeakBtn {
+  font-size: 18px;                /* Match speak button size */
+  padding: 10px 20px;             /* Match speak button padding */
+  cursor: pointer;                /* Hand cursor on hover */
+  border: none;                   /* Remove default borders */
+  border-radius: 6px;             /* Match design consistency */
+  margin-left: 10px;              /* Space between buttons */
+  transition: background-color 0.3s; /* Smooth hover effects */
+}
+
+/* Pause button - orange/yellow for "caution/pause" */
+#pauseSpeakBtn {
+  background-color: #f0ad4e;      /* Orange background */
+  color: white;                   /* White text for contrast */
+}
+
+/* Pause button hover effect */
+#pauseSpeakBtn:hover {
+  background-color: #ec971f;      /* Darker orange on hover */
+}
+
+/* Stop button - red for "stop/danger" */
+#stopSpeakBtn {
+  background-color: #d9534f;      /* Red background */
+  color: white;                   /* White text for contrast */
+}
+
+/* Stop button hover effect */
+#stopSpeakBtn:hover {
+  background-color: #c9302c;      /* Darker red on hover */
+}
+
+/* 
+ * =============================================================================
+ * DESIGN NOTES
+ * =============================================================================
+ * 
+ * Color Scheme:
+ * - Green (#4CAF50): Primary action (Speak) - suggests "go" or "start"
+ * - Orange (#f0ad4e): Secondary action (Pause) - suggests "caution" 
+ * - Red (#d9534f): Destructive action (Stop/Reset) - suggests "stop"
+ * - Gray (#f4f4f4, #888): Neutral elements and disabled states
+ * - White (#fff): Content areas for maximum readability
+ * 
+ * Layout Strategy:
+ * - Center-aligned layout for focus and simplicity
+ * - Consistent spacing (10px, 15px, 20px, 30px) for visual rhythm
+ * - Maximum width prevents text from becoming too wide on large screens
+ * - Generous padding and margins for comfortable interaction
+ * 
+ * Accessibility Considerations:
+ * - High contrast colors for text readability
+ * - Large clickable areas for buttons (minimum 44px recommended)
+ * - Clear visual hierarchy with font sizes and weights
+ * - Hover effects provide visual feedback for interactive elements
+ */

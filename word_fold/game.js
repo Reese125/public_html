@@ -140,7 +140,7 @@ function btn_click() {
         const currentBoard = BOARDS[counter];
         console.log("Board complete! Advancing to board " + counter);
         setup_game(currentBoard.cells);
-        document.getElementById("words").innerHTML = "words to spell: " + currentBoard.words.join(", ");
+        document.getElementById("words").innerHTML = "Words to spell: " + currentBoard.words.join(", ");
     } else {
         alert("You must complete the board first by forming all 5 words!");
         console.log("Cannot advance. Board not complete.");
@@ -151,7 +151,7 @@ function reset_level_click() {
     const currentBoard = BOARDS[counter];
     console.log(counter);
     setup_game(currentBoard.cells);
-    document.getElementById("words").innerHTML = "words to spell: " + currentBoard.words.join(", ");
+    document.getElementById("words").innerHTML = "Words to spell: " + currentBoard.words.join(", ");
 }
 
 function checkWinCondition() {

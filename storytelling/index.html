@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Page title shown in browser tab -->
+  <title>Voice Story Builder (ES6 MVC)</title>
+  <!-- Link to external CSS stylesheet for styling -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Load the main controller module using ES6 module syntax -->
+  <!-- This starts the entire MVC application -->
+  <script type="module" src="controller.js" defer></script>
+</head>
+
+<body>
+  <!-- Main heading of the application -->
+  <h1>🎤 AI Voice Story Builder</h1>
+
+  <!-- Language selection controls section -->
+  <div class="controls">
+    <!-- Label for the language dropdown -->
+    <label for="languageSelect">Choose Language: </label>
+    <!-- Dropdown menu for selecting different languages -->
+    <!-- Each option has a value (language code) and data-name (display name) -->
+    <select id="languageSelect">
+      <option value="en-US" data-name="English">English</option>
+      <option value="fr-FR" data-name="French">French</option>
+      <option value="vi-VN" data-name="Vietnamese">Vietnamese</option>
+      <option value="es-ES" data-name="Spanish">Spanish</option>
+      <option value="zh-CN" data-name="Chinese">Chinese</option>
+    </select>
+  </div>
+
+  <!-- Story display area where the interactive story text appears -->
+  <!-- Initial text serves as the starting prompt for users -->
+  <div id="story">
+    Narrator: Help me build a story! Start with a sentence and I will continue it.
+  </div>
+
+  <!-- Action buttons and loading indicator section -->
+  <div class="actions">
+    <!-- Button to start voice recognition and capture user speech -->
+    <button id="speakBtn">🎙️ Speak</button>
+    <!-- Button to pause/resume text-to-speech output -->
+    <button id="pauseSpeakBtn">⏸ Pause</button>
+    <!-- Button to stop speech and reset the entire story -->
+    <button id="stopSpeakBtn">⏹ Stop</button>
+    <!-- Loading indicator shown while AI is generating story responses -->
+    <div id="loading">AI is thinking...</div>
+  </div>
+
+</body>
+
+</html>
