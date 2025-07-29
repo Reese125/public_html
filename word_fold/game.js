@@ -86,7 +86,7 @@ function countNonEmptyCells() {
 }
 
 setup_game(BOARDS[0].cells);
-document.getElementById("words").innerHTML = "words to spell: " + BOARDS[0].words.join(", ")
+document.getElementById("words").innerHTML = "Words to spell: " + BOARDS[0].words.join(", ")
 
 let selected_x = -1;
 let selected_y = -1;
