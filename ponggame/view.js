@@ -18,9 +18,19 @@ export function updateScore(model) {
 export function draw_game(model) {
     const canvas = document.getElementById("gameboard");
     const ctx = canvas.getContext("2d");
+    
+    // Set the canvas drawing surface size to match the model.
+    // This prevents the browser from stretching the image.
+    canvas.width = BOARD_WIDTH;
+    canvas.height = BOARD_HEIGHT;
     ctx.fillStyle = "#0a2b5d";
     ctx.fillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);
     
+    // Draw the border
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 5;
+    ctx.strokeRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);
+
     // Draw the center line
     ctx.strokeStyle = "white";
     ctx.lineWidth = 3;
@@ -45,7 +55,7 @@ export function draw_game(model) {
 
 function draw_ball(ctx, ball) {
     ctx.fillStyle = "white";
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "grey";
     ctx.lineWidth = 2;
 
     ctx.beginPath();
@@ -57,11 +67,14 @@ function draw_ball(ctx, ball) {
 function draw_paddle(ctx, paddle) {
     ctx.fillStyle = paddle.color;
     ctx.strokeStyle = "grey";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1;
 
-    //draw rectangle
-    ctx.fillRect(paddle.posx, paddle.posy, paddle.width, paddle.height);
-    ctx.strokeRect(paddle.posx, paddle.posy, paddle.width, paddle.height);
+    // Draw a rounded rectangle for the paddle
+    ctx.beginPath();
+    const cornerRadius = paddle.width / 2; // This will make the ends perfectly round
+    ctx.roundRect(paddle.posx, paddle.posy, paddle.width, paddle.height, cornerRadius);
+    ctx.fill();
+    ctx.stroke();
 }
 
 export function speak_reset() {

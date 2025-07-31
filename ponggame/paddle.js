@@ -8,6 +8,7 @@ export default class Paddle {
     width;
     height;
     color;
+    color;
     constructor(posx, posy, width, height, side, color) {
         this.posx = posx;
         this.posy = posy;

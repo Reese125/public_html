@@ -5,7 +5,7 @@
 
 body {
     --gompei-count: 1;
-    background-color: rgb(0, 39, 0);
+    background-color: #224e6c;
     color: white;
     background-image: url('Screenshot_24-7-2025_151115_www.bing.com.jpeg'); 
     background-size: cover;
@@ -34,10 +34,11 @@ body {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-duration: calc(5s / var(--gompei-count, 1));
+
 }
 
 .store {
-    background-color: aqua;
+    background-color: rgb(80, 139, 48);
     text-align: center;
     cursor: pointer;
     color: black;
@@ -79,9 +80,13 @@ body {
     border: 3px solid black;
 }
 
+
+
+
+
 /* If the widget is a click widget */
 .widget:not([auto="true"]) {
-    background-color: limegreen;
+    background-color: rgb(122, 189, 87);
     border: 3px solid white;
 }
 
@@ -153,3 +158,5 @@ body {
         filter: hue-rotate(360deg);
     }
 }
+
+
