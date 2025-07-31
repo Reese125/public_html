@@ -48,7 +48,14 @@
     <!-- Loading indicator shown while AI is generating story responses -->
     <div id="loading">AI is thinking...</div>
   </div>
-
+ <!-- API Key input section - User must provide their Gemini API key -->
+                <div class="api-key-section">
+                    <label for="apiKey">Gemini API Key:</label>
+                    <!-- Password input to hide the API key for security -->
+                    <input type="password" id="apiKey" placeholder="Enter your Gemini API key">
+                    <!-- Button to save the API key to localStorage -->
+                    <button id="saveApiKey">Save</button>
+                </div>
 </body>
 
 </html>

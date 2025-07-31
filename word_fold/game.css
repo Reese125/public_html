@@ -1,7 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     align-items:column;
-    background-color: #ffffff; 
+    background-color: #224e6c; 
     display:flex;
     justify-content: end;
     flex-direction: column;
@@ -40,7 +40,6 @@ header {
 h1 {
     margin: 0;
     margin-bottom: 200px;
-
     font-size: 3rem;
 }
 
@@ -66,7 +65,7 @@ h1 {
     font-size: xx-large;
     background: rgb(24, 24, 24);
     overflow-wrap: anywhere;
-    border: 3px solid #ffffff;
+    border: 3px solid #5e5c5c;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
 }
 
@@ -76,12 +75,19 @@ h1 {
 }
 
 #next-btn {
-    display:none;
+    
+    font-size: 1.9rem; 
+    width: 400px;
+    margin-top: 30px;
+    background-color: #2a2929;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
 }
 
 #next-btn.enabled {
     display:block;
-    background-color: #74ab63; /* A nice green color */
+    background: linear-gradient(to right, blue, green, orange, red, indigo, blue, green, orange, red, indigo, blue);
+    background-size: 200% auto;
+    animation: rainbow-scroll .5s linear infinite;
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-size:2rem;
@@ -90,12 +96,26 @@ h1 {
 }
 
 #reset-btn {
-    background-color: #dc3545; /* A nice red color */
+    background-color: #ae1928; /* A nice red color */
     color: white;
     cursor: pointer;
     font-size: 2rem;
     width:400px;
     margin-top: 3px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+
+#undo-btn {
+    background-color: #ffc107; /* A nice amber color */
+    color: black;
+    cursor: pointer;
+    font-size: 2rem;
+    width: 400px;
+    margin-top: 3px;
+    border-radius: 7px;
+    border: none;
+
 }
 
 #winners-page {
@@ -105,3 +125,7 @@ h1 {
     margin-top: 50px;
 }
 
+@keyframes rainbow-scroll {
+    from { background-position: 100% 50%; }
+    to   { background-position: 0% 50%; }
+}

@@ -19,6 +19,7 @@ function changeScore(amount) {
         }
     }
 }
+
 function buy(store) {
     const cost = parseInt(store.getAttribute("cost"));
 
@@ -31,19 +32,16 @@ function buy(store) {
     // If Super-Gompei already exists
     const superGompei = document.querySelector("#widget-container #super-gompei")?.parentElement;
     if (store.getAttribute("name") === "Super-Gompei" && superGompei) {
-        super_gompei.setAttribute("reap", (parseInt(superGompei.getAttribute("reap")) + 100));
-        super_gompei_count += 1;
+        superGompei.setAttribute("reap", (parseInt(superGompei.getAttribute("reap")) + 100));        super_gompei_count += 1;
         document.body.style = "--gompei-count: " + super_gompei_count + ";"
         return;
     }
-    
-
 
     const widget = store.firstElementChild.cloneNode(true);
     widget.onclick = () => {
         harvest(widget);
     }
-    console.log(store)
+    console.log(store);
     widget_container.appendChild(widget);
 
     if (widget.getAttribute("auto") == 'true') {
@@ -88,3 +86,4 @@ function showPoint(widget) {
 }
 
 changeScore(0);
+

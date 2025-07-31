@@ -162,3 +162,4 @@ function checkWinCondition() {
         nextButton.classList.remove('enabled');
     }
 }
+
