@@ -1,14 +1,14 @@
-const widget_container = document.getElementById("widget-container")
-const score_element = document.getElementById("score")
-const stores = document.getElementsByClassName("store")
-
+const widget_container = document.getElementById("widget-container");
+const stores = document.getElementsByClassName("store");
+const score_element = document.getElementById("score");
 let score = 5;
 let super_gompei_count = 0;
 
-function changescore(amount) {
-    score += amount
+function changeScore(amount) {
+    score += amount;
     score_element.innerHTML = "Score: " + score;
 
+    // Update the stores to block buying expensive boxes
     for (let store of stores) {
         let cost = parseInt(store.getAttribute("cost"));
 
@@ -19,71 +19,75 @@ function changescore(amount) {
         }
     }
 }
+
 function buy(store) {
-    let cost = parseInt(store.getAttribute("cost"));
+    const cost = parseInt(store.getAttribute("cost"));
 
     if (score < cost) {
         return;
     }
 
-    changescore(-cost);
+    changeScore(-cost);
 
-    let super_gompei = document.querySelector("#widget-container #super-gompei")?.parentElement;
-   if(store.getAttribute("name") == "Super-Gompei" && super_gompei != null) {
-    let old_yield = parseInt(super_gompei.getAttribute("reap"));
-    super_gompei.setAttribute("reap", old_yield + 100)
-    super_gompei_count += 1;
-
-   }
-
-    let new_widget = store.firstElementChild.cloneNode(true);
-
-    new_widget.onclick = () => {
-        harvest(new_widget)
+    // If Super-Gompei already exists
+    const superGompei = document.querySelector("#widget-container #super-gompei")?.parentElement;
+    if (store.getAttribute("name") === "Super-Gompei" && superGompei) {
+        super_gompei.setAttribute("reap", (parseInt(superGompei.getAttribute("reap")) + 100));
+        super_gompei_count += 1;
+        superGompei.setAttribute("reap", (parseInt(superGompei.getAttribute("reap")) + 100));        super_gompei_count += 1;
+        document.body.style = "--gompei-count: " + super_gompei_count + ";"
+        return;
     }
+    
 
-    widget_container.appendChild(new_widget)
 
-    if (new_widget.getAttribute("auto") == 'true') {
-        new_widget.setAttribute("harvesting", "")
-        setup_end_harvest(new_widget)
+    const widget = store.firstElementChild.cloneNode(true);
+    widget.onclick = () => {
+        harvest(widget);
+    }
+    console.log(store)
+    console.log(store);
+    widget_container.appendChild(widget);
+
+    if (widget.getAttribute("auto") == 'true') {
+        widget.setAttribute("harvesting", "");
+        setup_end_harvest(widget);
     }
 }
 
 function setup_end_harvest(widget) {
     setTimeout(() => {
-        widget.removeAttribute("harvesting");;
-
+        // Remove the harvesting flag
+        widget.removeAttribute("harvesting");
+        // If automatic, start again
         if (widget.getAttribute("auto") == 'true') {
             harvest(widget);
         }
-
     }, parseFloat(widget.getAttribute("cooldown")) * 1000);
 }
 
 function harvest(widget) {
-    if(widget.hasAttribute("harvesting")) {
-        return;
-    }
-
+    // Only run if currently not harvesting
+    if (widget.hasAttribute("harvesting")) return;
+    // Set harvesting flag
     widget.setAttribute("harvesting", "");
 
-    changescore(parseInt(widget.getAttribute("reap")));
-    givePoints(widget)
+    // If manual, collect points now
+    changeScore(parseInt(widget.getAttribute("reap")));
+    showPoint(widget);
 
     setup_end_harvest(widget);
-
 }
 
-function givePoints(widget) {
-    let points_element = document.createElement("span");
-    points_element.className = "point"
-    points_element.innerHTML = "+" + widget.getAttribute("reap");
-    points_element.onanimationend = () => {
-        points_element.remove()
+
+function showPoint(widget) {
+    let number = document.createElement("span");
+    number.className = "point";
+    number.innerHTML = "+" + widget.getAttribute("reap");
+    number.onanimationend = () => {
+        widget.removeChild(number);
     }
-    widget.appendChild(points_element);
+    widget.appendChild(number);
 }
 
-
-changescore(0);
+changeScore(0);
